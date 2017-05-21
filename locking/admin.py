@@ -23,7 +23,7 @@ class LockingValidationError(forms.ValidationError):
         if locked_by.first_name and locked_by.last_name:
             locked_by_name = '%s %s' % (locked_by.first_name, locked_by.last_name)
         else:
-            locked_by_name = locked_by.username
+            locked_by_name = locked_by.get_username()
         super(LockingValidationError, self).__init__(
             self.msg.format(action=action, name=locked_by_name, email=locked_by.email))
 
@@ -119,7 +119,7 @@ class LockingAdminMixin(object):
     def get_json_options(self, request, object_id=None):
         app_label, model_name = self._model_info
         return json.dumps({
-            'currentUser': request.user.username,
+            'currentUser': request.user.get_username(),
             'appLabel': app_label,
             'modelName': model_name,
             'ping': getattr(settings, 'LOCKING_PING_SECONDS', DEFAULT_PING_SECONDS),
