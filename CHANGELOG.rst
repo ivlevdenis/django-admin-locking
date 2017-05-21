@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**1.4 (May 21, 2017)**
+
+* New: added MANIFEST.in
+* Fixed: use get_username () to determine the username
+* Merged: from https://github.com/k8n/django-admin-locking
+
 **1.3 (August 7, 2016)**
 
 * Improved: bind to form submit event for more robust unlocking
