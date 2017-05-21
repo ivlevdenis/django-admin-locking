@@ -2,3 +2,4 @@ include LICENSE
 include README.md
 recursive-include locking/static *
 recursive-include locking/templates *
+recursive-include locking/locale *

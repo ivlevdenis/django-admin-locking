@@ -5,6 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from .settings import DEFAULT_EXPIRATION_SECONDS
 
@@ -45,7 +46,7 @@ class LockingManager(QueryMixin, models.Manager):
             if lock.has_expired:
                 lock.locked_by = user
             elif lock.locked_by.id != user.id:
-                raise Lock.ObjectLockedError('This object is already locked by another user',
+                raise Lock.ObjectLockedError(_('This object is already locked by another user'),
                                              lock=lock)
         lock.save()
         return lock

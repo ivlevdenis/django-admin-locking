@@ -8,6 +8,7 @@ from django.conf import settings
 from django.conf.urls import url
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Lock
 from .settings import DEFAULT_PING_SECONDS, DEFAULT_SHARE_ADMIN_JQUERY
@@ -16,7 +17,7 @@ __all__ = ('LockingValidationError', 'LockingAdminMixin')
 
 
 class LockingValidationError(forms.ValidationError):
-    msg = 'You cannot {action} this object because it is locked by {name} ({email})'
+    msg = _('You cannot {action} this object because it is locked by {name} ({email})')
 
     def __init__(self, lock, action):
         locked_by = lock.locked_by
@@ -90,7 +91,7 @@ class LockingAdminMixin(object):
         return html.format(obj_id=obj.pk)
 
     is_locked.allow_tags = True
-    is_locked.short_description = 'Lock'
+    is_locked.short_description = _('Lock')
 
     @property
     def locking_admin_form_js_url_name(self):
