@@ -113,7 +113,7 @@ class Lock(models.Model):
     def to_dict(self):
         return {
             'locked_by': {
-                'username': self.locked_by.username,
+                'username': self.locked_by.get_username(),
                 'first_name': self.locked_by.first_name,
                 'last_name': self.locked_by.last_name,
                 'email': self.locked_by.email,
