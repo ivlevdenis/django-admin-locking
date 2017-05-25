@@ -4,11 +4,6 @@
 ;(function (locking, undefined) {
     'use strict';
 
-    if (gettext === undefined) {
-        var gettext = function(text) {
-            return text
-        }
-    }
     var $ = locking.jQuery;
 
     /**
