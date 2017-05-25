@@ -4,7 +4,7 @@
 ;(function (locking, undefined) {
     'use strict';
 
-    if !(gettext) {
+    if (gettext === undefined) {
         var gettext = function(text) {
             return text
         }
