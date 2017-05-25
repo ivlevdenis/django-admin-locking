@@ -185,14 +185,14 @@
                 error: function(XMLHttpRequest) {
                     if (XMLHttpRequest.status < 200 || XMLHttpRequest.status >= 500) {
                         if (self.hasLock && self.numFailedConnections == 1) {
-                            window.alert('Warning! Due to loss of network connectivity ' +
+                            window.alert(gettext('Warning! Due to loss of network connectivity ' +
                                          'or a server error, you may not be able ' +
-                                         'to submit this form.');
+                                         'to submit this form.'));
                         }
                         self.numFailedConnections++;
                     } else {
                         if (self.hasLock) {
-                            window.alert('Another user has taken your lock on this form');
+                            window.alert(gettext('Another user has taken your lock on this form'));
                         }
                         self.disableForm($.parseJSON(XMLHttpRequest.responseText));
                     }
@@ -258,7 +258,7 @@
         },
 
         takeLock: function() {
-            if (window.confirm('Are you sure you want to remove this lock?')) {
+            if (window.confirm(gettext('Are you sure you want to remove this lock?'))) {
                 var self = this;
                 this.api.takeLock({
                     success: function() {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-21 08:05+0000\n"
+"POT-Creation-Date: 2017-05-25 06:47+0000\n"
 "PO-Revision-Date: 2017-05-21 11:07+0300\n"
 "Last-Translator: Ivlev Denis <di-erz@yandex.ru>\n"
 "Language-Team: \n"
@@ -19,13 +19,14 @@ msgstr ""
 
 #: admin.py:20
 #, python-brace-format
-msgid "You cannot {action} this object because it is locked by {name} ({email})"
+msgid ""
+"You cannot {action} this object because it is locked by {name} ({email})"
 msgstr "Вы не можете {action} данный объект, заблокирован {name} ({email})"
 
 #: admin.py:94
 msgid "Lock"
 msgstr "Заблокировано"
 
-#: models.py:48
+#: models.py:49
 msgid "This object is already locked by another user"
 msgstr "Данный объект заблокирован другим пользователем"

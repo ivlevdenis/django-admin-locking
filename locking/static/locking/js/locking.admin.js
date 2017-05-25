@@ -4,6 +4,11 @@
 ;(function (locking, undefined) {
     'use strict';
 
+    if !(gettext) {
+        var gettext = function(text) {
+            return text
+        }
+    }
     var $ = locking.jQuery;
 
     /**
@@ -28,7 +33,7 @@
             for (var i = 0; i < data.length; i++) {
                 user = data[i]['locked_by'];
                 if (user['username'] === self.currentUser) {
-                    lockedMessage = "You are currently editing this";
+                    lockedMessage = gettext("You are currently editing this");
                     lockedClass = "editing";
                 } else {
                     name = user['first_name'] + ' ' + user['last_name'];
@@ -74,8 +79,9 @@
     $.extend(LockingAdminForm.prototype, {
         warningHtml: '<ul class="messagelist grp-messagelist">' +
                         '<li class="error grp-error" id="locking-warning">' +
-                            'Form is locked by <span class="locking-locked-by"></span>' +
-                            '<a id="locking-take-lock" class="button grp-button rounded-button" onclick="window.locking.lockingFormInstance.takeLock()">Take over lock</a>' +
+                            gettext('Form is locked by') + ' <span class="locking-locked-by"></span>' +
+                            '<a id="locking-take-lock" class="button grp-button rounded-button" onclick="window.locking.lockingFormInstance.takeLock()">'+
+                            gettext('Take over lock') + '</a>' +
                         '</li>' +
                      '</ul>',
         lockedBy: {
